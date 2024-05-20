@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-05-18
+  Last mod.: 2024-05-20
 */
 
 #include <me_UnoAddresses.h>
@@ -37,7 +37,7 @@ void setup()
   printf(
     "Pin %u. Address 0x%02X, bit %u.\n",
     Pin,
-    BitAddr.Base,
+    BitAddr.Base.Addr,
     BitAddr.BitOffs
   );
 }

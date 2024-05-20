@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-05-17
+  Last mod.: 2024-05-20
 */
 
 #include "me_UnoAddresses.h"
@@ -18,7 +18,7 @@ using namespace me_BaseTypes;
   Get pin address and bit
 */
 TBool me_UnoAddresses::GetPinAddress_Bits(
-  TMemoryPoint_Bits *Address,
+  TMemoryPoint_Bits * Result,
   TUint_1 Pin
 )
 {
@@ -36,14 +36,14 @@ TBool me_UnoAddresses::GetPinAddress_Bits(
   if (Pin > 19)
     return false;
 
-  enum PortAddresses:TMemoryPoint
+  enum PortAddresses:TUint_2
   {
     B = 0x25,
     C = 0x28,
     D = 0x2B,
   };
 
-  TMemoryPoint Addr;
+  TUint_2 Addr;
   TUint_1 Bit;
 
   if (Pin <= 7)
@@ -62,8 +62,8 @@ TBool me_UnoAddresses::GetPinAddress_Bits(
     Bit = Pin - 14;
   }
 
-  (*Address).Base = Addr;
-  (*Address).BitOffs = Bit;
+  (*Result).Base.Addr = Addr;
+  (*Result).BitOffs = Bit;
 
   return true;
 }
