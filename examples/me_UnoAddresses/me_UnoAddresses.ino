@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-05-20
+  Last mod.: 2024-09-12
 */
 
 #include <me_UnoAddresses.h>
@@ -12,7 +12,6 @@
 #include <me_BaseTypes.h>
 
 using namespace me_UnoAddresses;
-using namespace me_BaseTypes;
 
 void setup()
 {
@@ -20,7 +19,7 @@ void setup()
   InstallStandardStreams();
   delay(500);
 
-  printf("[me_UnoAddresses]\n");
+  printf("[me_UnoAddresses] Hello there!\n");
 
   TUint_1 Pin;
   TMemoryPoint_Bits BitAddr;
@@ -30,7 +29,7 @@ void setup()
   GotAddr = GetPinAddress_Bits(&BitAddr, Pin);
   if (!GotAddr)
   {
-    printf("Failed to get address for pin %u.", Pin);
+    printf("Failed to get address for pin %u.\n", Pin);
     return;
   }
 
@@ -40,8 +39,14 @@ void setup()
     BitAddr.Base.Addr,
     BitAddr.BitOffs
   );
+
+  printf("[me_UnoAddresses] Done.\n");
 }
 
 void loop()
 {
 }
+
+/*
+  2024-05-20
+*/

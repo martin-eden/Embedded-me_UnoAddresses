@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-05-17
+  Last mod.: 2024-09-12
 */
 
 #pragma once
@@ -13,7 +13,6 @@
 namespace me_UnoAddresses
 {
   using namespace me_MemoryPoint;
-  using namespace me_BaseTypes;
 
   // Get memory bit address for pin
   TBool GetPinAddress_Bits(

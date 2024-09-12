@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-05-20
+  Last mod.: 2024-09-12
 */
 
 #include "me_UnoAddresses.h"
@@ -12,7 +12,6 @@
 
 using namespace me_UnoAddresses;
 using namespace me_MemoryPoint;
-using namespace me_BaseTypes;
 
 /*
   Get pin address and bit
