@@ -23,13 +23,22 @@ Run [Install.sh](Install.sh).
 Run [Remove.sh](Remove.sh).
 
 
-## Details
+## Code
 
-[Example](examples/me_UnoAddresses/me_UnoAddresses.ino)
-
-[Code](src/me_UnoAddresses.cpp)
+* [Example][Example]
+* [Interface][Interface]
+* [Implementation][Implementation]
 
 
 ## See also
 
-[My other repositories](https://github.com/martin-eden/contents).
+* [My other embedded C++ libraries][Embedded]
+* [My other repositories][Repos]
+
+
+[Example]: examples/me_UnoAddresses/me_UnoAddresses.ino
+[Interface]: src/me_UnoAddresses.h
+[Implementation]: src/me_UnoAddresses.cpp
+
+[Embedded]: https://github.com/martin-eden/Embedded_Crafts/tree/master/Parts
+[Repos]: https://github.com/martin-eden/contents
