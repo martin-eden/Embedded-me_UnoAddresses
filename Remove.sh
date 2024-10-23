@@ -7,5 +7,4 @@ arduino-cli lib uninstall me_UnoAddresses
 arduino-cli lib uninstall \
   me_UartSpeeds \
   me_InstallStandardStreams \
-  me_MemoryPoint \
   me_BaseTypes
