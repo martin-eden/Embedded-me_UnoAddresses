@@ -2,22 +2,21 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-09-12
+  Last mod.: 2024-10-23
 */
 
 #include "me_UnoAddresses.h"
 
-#include <me_MemoryPoint.h>
 #include <me_BaseTypes.h>
 
 using namespace me_UnoAddresses;
-using namespace me_MemoryPoint;
 
 /*
   Get pin address and bit
 */
-TBool me_UnoAddresses::GetPinAddress_Bits(
-  TMemoryPoint_Bits * Result,
+TBool me_UnoAddresses::GetPinAddress(
+  TUint_2 * PinByteAddr,
+  TUint_1 * PinBitOffs,
   TUint_1 Pin
 )
 {
@@ -61,8 +60,8 @@ TBool me_UnoAddresses::GetPinAddress_Bits(
     Bit = Pin - 14;
   }
 
-  (*Result).Base.Addr = Addr;
-  (*Result).BitOffs = Bit;
+  *PinByteAddr = Addr;
+  *PinBitOffs = Bit;
 
   return true;
 }
@@ -72,4 +71,5 @@ TBool me_UnoAddresses::GetPinAddress_Bits(
   2024-05-05 [/] to PinToAddressAndBit()
   2024-05-14 [/] GetPinBitAddress()
   2024-05-18 [/] GetPinAddress_Bits() lol
+  2024-10-23
 */
