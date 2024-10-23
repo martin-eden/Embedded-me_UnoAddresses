@@ -2,45 +2,54 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-09-12
+  Last mod.: 2024-10-23
 */
 
 #include <me_UnoAddresses.h>
 
-#include <me_UartSpeeds.h>
-#include <me_InstallStandardStreams.h>
 #include <me_BaseTypes.h>
-
-using namespace me_UnoAddresses;
+#include <me_UartSpeeds.h>
+#include <me_Console.h>
 
 void setup()
 {
   Serial.begin(me_UartSpeeds::Arduino_Normal_Bps);
-  InstallStandardStreams();
-  delay(500);
 
-  printf("[me_UnoAddresses] Hello there!\n");
+  Console.Print("[me_UnoAddresses] Hello there!");
 
   TUint_1 Pin;
-  TMemoryPoint_Bits BitAddr;
+  TUint_2 PinAddress;
+  TUint_1 PinBitOffset;
   TBool GotAddr;
 
   Pin = A1;
-  GotAddr = GetPinAddress_Bits(&BitAddr, Pin);
+
+  GotAddr =
+    me_UnoAddresses::GetPinAddress(
+      &PinAddress,
+      &PinBitOffset,
+      Pin
+    );
+
   if (!GotAddr)
   {
-    printf("Failed to get address for pin %u.\n", Pin);
+    Console.Write("Failed to get address for pin (");
+    Console.Print(Pin);
+    Console.Write(")");
+    Console.EndLine();
     return;
   }
 
-  printf(
-    "Pin %u. Address 0x%02X, bit %u.\n",
-    Pin,
-    BitAddr.Base.Addr,
-    BitAddr.BitOffs
-  );
+  Console.Write("Pin ( Number");
+  Console.Print(Pin);
+  Console.Write(") Address (");
+  Console.Print(PinAddress);
+  Console.Write(") Bit (");
+  Console.Print(PinBitOffset);
+  Console.Write(")");
+  Console.EndLine();
 
-  printf("[me_UnoAddresses] Done.\n");
+  Console.Print("[me_UnoAddresses] Done.");
 }
 
 void loop()
@@ -49,4 +58,5 @@ void loop()
 
 /*
   2024-05-20
+  2024-10-23
 */
