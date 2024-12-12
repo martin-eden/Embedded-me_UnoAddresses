@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-10-23
+  Last mod.: 2024-12-12
 */
 
 #pragma once
@@ -17,10 +17,13 @@ namespace me_UnoAddresses
     TUint_1 * PinBitOffs,
     TUint_1 Pin
   );
+
+  const TAddress RamMaxAddr = 256 + 2 * 1024 - 1;
 }
 
 /*
   2024-03
   2024-05
   2024-10-23 Redesign without using [me_MemoryPoint]
+  2024-12-12
 */
