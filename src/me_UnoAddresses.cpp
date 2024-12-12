@@ -2,10 +2,10 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-10-23
+  Last mod.: 2024-12-12
 */
 
-#include "me_UnoAddresses.h"
+#include <me_UnoAddresses.h>
 
 #include <me_BaseTypes.h>
 
@@ -13,10 +13,13 @@ using namespace me_UnoAddresses;
 
 /*
   Get pin address and bit
+
+  Fails at wrong ping number.
+  On fail returns false.
 */
 TBool me_UnoAddresses::GetPinAddress(
-  TUint_2 * PinByteAddr,
-  TUint_1 * PinBitOffs,
+  TAddress * PinAddr,
+  TUint_1 * PinBit,
   TUint_1 Pin
 )
 {
@@ -34,34 +37,28 @@ TBool me_UnoAddresses::GetPinAddress(
   if (Pin > 19)
     return false;
 
-  enum PortAddresses:TUint_2
+  enum PortAddresses:TAddress
   {
-    B = 0x25,
-    C = 0x28,
-    D = 0x2B,
+    PortB = 37,
+    PortC = 40,
+    PortD = 43,
   };
-
-  TUint_2 Addr;
-  TUint_1 Bit;
 
   if (Pin <= 7)
   {
-    Addr = PortAddresses::D;
-    Bit = Pin;
+    *PinAddr = PortAddresses::PortD;
+    *PinBit = Pin;
   }
   else if ((Pin >= 8) && (Pin <= 13))
   {
-    Addr = PortAddresses::B;
-    Bit = Pin - 8;
+    *PinAddr = PortAddresses::PortB;
+    *PinBit = Pin - 8;
   }
   else if ((Pin >= 14) && (Pin <= 19))
   {
-    Addr = PortAddresses::C;
-    Bit = Pin - 14;
+    *PinAddr = PortAddresses::PortC;
+    *PinBit = Pin - 14;
   }
-
-  *PinByteAddr = Addr;
-  *PinBitOffs = Bit;
 
   return true;
 }
@@ -72,4 +69,5 @@ TBool me_UnoAddresses::GetPinAddress(
   2024-05-14 [/] GetPinBitAddress()
   2024-05-18 [/] GetPinAddress_Bits() lol
   2024-10-23
+  2024-12-12
 */

@@ -13,12 +13,16 @@ namespace me_UnoAddresses
 {
   // Get memory bit address for pin
   TBool GetPinAddress(
-    TUint_2 * PinByteAddr,
-    TUint_1 * PinBitOffs,
+    TAddress * PinAddr,
+    TUint_1 * PinBit,
     TUint_1 Pin
   );
 
+  const TUint_2 RamSize = 2 * 1024;
   const TAddress RamMaxAddr = 256 + 2 * 1024 - 1;
+
+  const TUint_2 FlashSize = 32 * 1024L;
+  const TAddress MaxFlashAddr = FlashSize - 1;
 }
 
 /*

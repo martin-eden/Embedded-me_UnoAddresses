@@ -2,36 +2,31 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-10-23
+  Last mod.: 2024-12-12
 */
 
 #include <me_UnoAddresses.h>
 
 #include <me_BaseTypes.h>
+#include <me_Uart.h>
 #include <me_UartSpeeds.h>
 #include <me_Console.h>
 
-void setup()
+void RunTest()
 {
-  Serial.begin(me_UartSpeeds::Arduino_Normal_Bps);
-
-  Console.Print("[me_UnoAddresses] Hello there!");
+  using
+    me_UnoAddresses::GetPinAddress;
 
   TUint_1 Pin;
-  TUint_2 PinAddress;
+  TAddress PinAddress;
   TUint_1 PinBitOffset;
-  TBool GotAddr;
+  TBool IsOkay;
 
   Pin = A1;
 
-  GotAddr =
-    me_UnoAddresses::GetPinAddress(
-      &PinAddress,
-      &PinBitOffset,
-      Pin
-    );
+  IsOkay = GetPinAddress(&PinAddress, &PinBitOffset, Pin);
 
-  if (!GotAddr)
+  if (!IsOkay)
   {
     Console.Write("Failed to get address for pin (");
     Console.Print(Pin);
@@ -48,7 +43,16 @@ void setup()
   Console.Print(PinBitOffset);
   Console.Write(")");
   Console.EndLine();
+}
 
+//
+
+void setup()
+{
+  me_Uart::Init(me_UartSpeeds::Bps_115k);
+
+  Console.Print("[me_UnoAddresses] Hello there!");
+  RunTest();
   Console.Print("[me_UnoAddresses] Done.");
 }
 
