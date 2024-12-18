@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-12-12
+  Last mod.: 2024-12-18
 */
 
 #pragma once
@@ -20,9 +20,6 @@ namespace me_UnoAddresses
 
   const TUint_2 RamSize = 2 * 1024;
   const TAddress RamMaxAddr = 256 + 2 * 1024 - 1;
-
-  const TUint_2 FlashSize = 32 * 1024L;
-  const TAddress MaxFlashAddr = FlashSize - 1;
 }
 
 /*
@@ -30,4 +27,5 @@ namespace me_UnoAddresses
   2024-05
   2024-10-23 Redesign without using [me_MemoryPoint]
   2024-12-12
+  2024-12-18
 */
