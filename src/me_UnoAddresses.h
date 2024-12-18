@@ -17,9 +17,6 @@ namespace me_UnoAddresses
     TUint_1 * PinBit,
     TUint_1 Pin
   );
-
-  const TUint_2 RamSize = 2 * 1024;
-  const TAddress RamMaxAddr = 256 + 2 * 1024 - 1;
 }
 
 /*
