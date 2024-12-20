@@ -2,12 +2,10 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-12-12
+  Last mod.: 2024-12-20
 */
 
 #include <me_UnoAddresses.h>
-
-#include <me_BaseTypes.h>
 
 using namespace me_UnoAddresses;
 
