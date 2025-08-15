@@ -2,7 +2,7 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2024-12-20
+  Last mod.: 2025-08-15
 */
 
 #include <me_UnoAddresses.h>
@@ -22,14 +22,14 @@ TBool me_UnoAddresses::GetPinAddress(
 )
 {
   /*
-    Arduino Uno board has 14 "digital" pins (0..13) and
-    6 "analog" pins A0 .. A5 (14..19).
+    Pins are grouped in bit "ports". Pin requires three bits to
+    configure and control it. So three different ports per 8 pins.
 
-    This nomenclature is a bit cursed as "analog" pins can
-    do digital input/output and A4..A5 are used for I2C.
+    Ports can be named Mode Read Write. Memory sequence for them
+    is Read Mode Write.
 
-    Difference is that "analog" pins can digitize analog signal
-    to 10 bits while "digital" pins digitize to one bit.
+    We're returning address of Write port. To get address of Read port
+    shift address by two bytes.
   */
 
   if (Pin > 19)
