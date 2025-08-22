@@ -1,14 +1,21 @@
-# What
+## What
 
 (2024-05, 2024-12)
 
-Arduino library to get some useful memory addresses for ATmega328/P.
+Function to get bit address by given pin number. ATmega328
 
-What was needed so far is getting port and bit offset for pin.
-Also provides constants for SRAM size, max SRAM address and Flash
-memory size.
 
-(This module should be changed.)
+## Archived
+
+(2025)
+
+This module is considered obsolete.
+
+It did it's job. It provides core information and isolated.
+
+It was created for [me_Ws2812b][me_Ws2812b]. Today we have [me_Pins][me_Pins]
+and it should get this information by itself.
+
 
 ## Reference output
 
@@ -18,34 +25,41 @@ Pin ( Number 015 ) Address ( 00040 ) Bit ( 001 )
 [me_UnoAddresses] Done.
 ```
 
+
 ## Requirements
 
   * arduino-cli
   * bash
 
+
 ## Install/remove
 
-Initially I was writing shell scripts to install all dependent libraries
-to run demo examples. (And only them!) But it's hard to maintain.
+Clone [GetLibs][GetLibs] get all my active libraries. Run shell scripts
+there to install/uninstall them.
 
-Today's approach is to clone [repo to get all my libraries][GetLibs].
-Run shell scripts. They will download and install all my embedded stuff,
-including this.
+Obsolete repositories will eventually become unused. So clone this
+repo manually to be sure.
+
 
 ## Code
 
-* [Example][Example]
 * [Interface][Interface]
+* [Example][Example]
 * [Implementation][Implementation]
+
 
 ## See also
 
 * [My other embedded C++ libraries][Embedded]
 * [My other repositories][Repos]
 
+
 [Example]: examples/me_UnoAddresses/me_UnoAddresses.ino
 [Interface]: src/me_UnoAddresses.h
 [Implementation]: src/me_UnoAddresses.cpp
+
+[me_Ws2812b]: https://github.com/martin-eden/Embedded-me_Ws2812b
+[me_Pins]: https://github.com/martin-eden/Embedded-me_Pins
 
 [GetLibs]: https://github.com/martin-eden/Embedded-Framework-GetLibs
 [Embedded]: https://github.com/martin-eden/Embedded_Crafts
